@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- Header -->
+      <header class="header">
+        <div>
+          <p class="eyebrow">PERSONAL FINANCE</p>
+          <h1>Expense Tracker</h1>
+          <p class="subtitle">Track your money. Manage your future.</p>
+        </div>
+
+        <div class="header-icon">₹</div>
+      </header>
+
+      <!-- Summary Cards -->
+      <section class="summary-grid">
+        <article class="summary-card income-card">
+          <p>Total Income</p>
+          <h2 id="total-income">₹0.00</h2>
+        </article>
+
+        <article class="summary-card expense-card">
+          <p>Total Expenses</p>
+          <h2 id="total-expenses">₹0.00</h2>
+        </article>
+
+        <article class="summary-card balance-card">
+          <p>Current Balance</p>
+          <h2 id="current-balance">₹0.00</h2>
+        </article>
+      </section>
+
+      <!-- Insights / Bonus Features -->
+      <section class="insights-grid">
+        <article class="panel insight-card">
+          <div class="section-heading">
+            <div>
+              <h2>This Month's Expenses</h2>
+              <p>Your total spending for the current month.</p>
+            </div>
+          </div>
+
+          <div class="monthly-amount" id="monthly-expense">₹0.00</div>
+        </article>
+
+        <article class="panel insight-card">
+          <div class="section-heading">
+            <div>
+              <h2>Expense by Category</h2>
+              <p>See where your money is being spent.</p>
+            </div>
+          </div>
+
+          <div id="category-chart" class="category-chart">
+            <p class="chart-empty">No expense data available.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Add Transaction -->
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">TRANSACTION</p>
+            <h2 id="form-title">Add New Transaction</h2>
+            <p>Add your income or expense details below.</p>
+          </div>
+        </div>
+
+        <form id="transaction-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="type">Transaction Type</label>
+
+              <select id="type" required>
+                <option value="">Select Type</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="amount">Amount</label>
+
+              <input
+                type="number"
+                id="amount"
+                placeholder="Enter amount"
+                min="0"
+                step="0.01"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="category">Category</label>
+
+              <input
+                type="text"
+                id="category"
+                placeholder="e.g. Food, Salary"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="date">Date</label>
+
+              <input type="date" id="date" required />
+            </div>
+
+            <div class="form-group full-width">
+              <label for="description">Description</label>
+
+              <input
+                type="text"
+                id="description"
+                placeholder="Enter transaction description"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submit-button">
+              Add Transaction
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancel-button"
+              hidden
+            >
+              Cancel
+            </button>
+          </div>
+
+          <!-- Validation / Success Message -->
+          <p id="form-message" class="form-message"></p>
+        </form>
+      </section>
+
+      <!-- Transaction History -->
+      <section class="panel transaction-section">
+        <div class="transaction-header">
+          <div>
+            <p class="eyebrow">HISTORY</p>
+            <h2>Transaction History</h2>
+            <p id="transaction-count">0 transactions</p>
+          </div>
+
+          <div class="filters">
+            <select id="filter-type">
+              <option value="all">All Types</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+
+            <input
+              type="text"
+              id="filter-category"
+              placeholder="Search category"
+            />
+          </div>
+        </div>
+
+        <!-- Transactions -->
+        <div id="transactions-container" class="transactions-container">
+          <div id="no-transactions" class="empty-state">
+            <h3>No transactions yet</h3>
+            <p>Add your first transaction to start tracking your finances.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>Expense Tracker • Personal Finance Management</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
